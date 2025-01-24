@@ -8,14 +8,30 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="manifest" href="assets/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Play';
+            src: url('https://cdn.jsdelivr.net/gh/<你的GitHub用户名>/<仓库名>@<分支>/assets/fonts/Play.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* 确保页面不滚动 */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 禁止滚动 */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-user-select: none; /* 禁止选择（适配 Safari 和 Chrome） */
+            -moz-user-select: none;    /* 禁止选择（适配 Firefox） */
+            -ms-user-select: none;     /* 禁止选择（适配 IE） */
+            user-select: none;         /* 禁止选择 */
         }
 
         body {
@@ -24,21 +40,18 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             font-family: 'Play', sans-serif;
             background-color: #fffffd;
             color: #000000;
-            user-select: none;
         }
 
         .contact-info {
             text-align: center;
-            max-width: 90%;
-            width: 400px;
+            max-width: 90%; /* 保证宽度适配 */
+            width: 100%;
         }
 
         .contact-info h1 {
-            font-size: 2em;
             margin-bottom: 0.2em;
         }
 
@@ -47,14 +60,14 @@
             font-size: 1em;
         }
 
-        .contact-info .chinese-name {
-            font-family: 'Zhi Mang Xing', cursive;
-            font-size: 3.6em;
-            margin: 0.2em 0;
+        .contact-info .name-svg {
+            width: 16vw; /* 根据屏幕宽度调整大小 */
+            max-width: 150px; /* 限制最大宽度 */
+            height: auto; /* 保证比例不变 */
         }
 
         .contact-info .divider {
-            width: 36%;
+            width: 6%;
             height: 1px;
             background-color: #000;
             margin: 1em auto;
@@ -79,63 +92,85 @@
             color: #4f4c4c;
             text-align: center;
             padding: 1em 0;
-            position: fixed;
-            bottom: 0;
             font-size: 0.8em;
+            position: absolute; /* 固定在底部 */
+            bottom: 0;
         }
 
         @media (max-width: 600px) {
-            .contact-info h1 {
-                font-size: 1.6em;
-            }
-
             .contact-info p {
                 font-size: 0.9em;
             }
 
-            .contact-info .chinese-name {
-                font-size: 2em;
+            .contact-info .name-svg {
+                width: 20vw;
+                max-width: 100px;
             }
         }
 
         @media (max-width: 400px) {
-            .contact-info h1 {
-                font-size: 3.6em;
-            }
-
             .contact-info p {
                 font-size: 0.8em;
             }
 
-            .contact-info .chinese-name {
-                font-size: 1.5em;
+            .contact-info .name-svg {
+                width: 25vw;
+                max-width: 80px;
             }
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.body.oncontextmenu = function () { return false; };
-            document.body.onselectstart = function () { return false; };
-            document.body.oncopy = function () { return false; };
+            // 禁止右键菜单
+            document.body.oncontextmenu = function () {
+                return false;
+            };
+
+            // 禁止选择内容
+            document.body.onselectstart = function () {
+                return false;
+            };
+
+            // 禁止复制内容
+            document.body.oncopy = function () {
+                return false;
+            };
+
+            // 针对移动设备禁用触摸长按的选中
+            document.body.addEventListener('touchstart', function (e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            document.body.addEventListener('touchend', function (e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            });
+
+            document.body.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, { passive: false });
         });
     </script>
 </head>
 <body>
     <div class="contact-info">
-        <h1 class="chinese-name">霍泽楠</h1>
+        <img src="./fonts/name.svg" alt="霍泽楠" class="name-svg">
         <p>Zenan Huo</p>
         <div class="divider"></div>
         <div class="contact-links">
-            <a href="mailto:zenan.huo@outlook.com" target="_blank">Email</a>
-            <span>|</span>
             <a href="https://scholar.google.com/citations?user=pwK2dYYAAAAJ&hl=en" target="_blank">Scholar</a>
-            <span>|</span>
+            <span>·</span>
+            <a href="mailto:zenan.huo@outlook.com" target="_blank">Email</a>
+            <span>·</span>
             <a href="https://github.com/ZenanH" target="_blank">GitHub</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2016-2025 Zenan Huo. 99% created by ChatGPT-4o.</p>
+        <p>&copy; 2025 Zenan Huo | 99% created by ChatGPT-4o.</p>
     </footer>
 </body>
 </html>
