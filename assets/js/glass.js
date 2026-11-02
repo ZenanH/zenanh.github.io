@@ -11,7 +11,7 @@
  * The port targets an SVG displacement filter fed by a live backdrop instead
  * of the library's html2canvas page snapshot.
  *
- * Pair with the `.liquid-glass` class from ./liquid-glass.css:
+ * Pair with the `.liquid-glass` class from ../css/liquid-glass.css:
  *   <div class="liquid-glass" appLiquidGlass>…</div>
  *
  * Porting to another framework: ../references/refraction.md carries the

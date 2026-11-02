@@ -15,7 +15,7 @@ from markdown_it import MarkdownIt
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / ".private" / "workbench.md"
-OUTPUT = ROOT / "assets" / "workbench-vault.json"
+OUTPUT = ROOT / "assets" / "data" / "workbench-vault.json"
 ITERATIONS = 600_000
 
 

@@ -32,7 +32,7 @@
     try {
       if (!globalThis.crypto?.subtle) throw new Error('crypto-unavailable');
 
-      const response = await fetch('assets/workbench-vault.json', { cache: 'no-store' });
+      const response = await fetch('assets/data/workbench-vault.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('vault-unavailable');
       const vault = await response.json();
       if (vault.version !== 1 || vault.kdf !== 'PBKDF2-SHA-256' || vault.cipher !== 'AES-256-GCM') {
