@@ -1,0 +1,54 @@
+:root,
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --glass-radius: 12px;
+  --glass-tint-top: rgba(255, 255, 255, 0.06);
+  --glass-tint-bottom: rgba(179, 179, 179, 0.06);
+  --glass-rim-top: rgba(255, 255, 255, 0.5);
+  --glass-rim-hairline: rgba(255, 255, 255, 0.1);
+  --glass-rim-bottom: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --glass-page-bg: #09110f;
+  --glass-page-fg: #edf4f0;
+  --glass-mesh-forest: rgba(35, 105, 75, 0.22);
+  --glass-mesh-sage: rgba(107, 146, 112, 0.10);
+  --glass-mesh-jade: rgba(44, 119, 105, 0.12);
+  --glass-mesh-corner-top: rgba(64, 135, 101, 0.10);
+  --glass-mesh-corner-bottom: rgba(36, 94, 70, 0.14);
+}
+
+.liquid-glass-backdrop {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-page-bg);
+  color: var(--glass-page-fg);
+}
+
+.liquid-glass-backdrop::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(40rem 32rem at 42% 38%, var(--glass-mesh-forest), transparent 60%),
+    radial-gradient(34rem 30rem at 62% 52%, var(--glass-mesh-sage), transparent 62%),
+    radial-gradient(38rem 34rem at 48% 66%, var(--glass-mesh-jade), transparent 62%),
+    radial-gradient(60rem 40rem at 12% -10%, var(--glass-mesh-corner-top), transparent 60%),
+    radial-gradient(50rem 36rem at 95% 110%, var(--glass-mesh-corner-bottom), transparent 60%);
+  content: '';
+  pointer-events: none;
+}
+
+.liquid-glass {
+  position: relative;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  background: linear-gradient(180deg, var(--glass-tint-top), var(--glass-tint-bottom));
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-rim-top),
+    inset 0 0 0 1px var(--glass-rim-hairline),
+    inset 0 -1px 0 var(--glass-rim-bottom);
+  backdrop-filter: blur(3px) saturate(125%);
+  -webkit-backdrop-filter: blur(3px) saturate(125%);
+}

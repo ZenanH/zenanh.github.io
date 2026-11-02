@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbench — Zenan Huo</title>
+<meta name="description" content="Password-protected computer setup and software notes.">
+<link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="stylesheet" href="assets/liquid-glass.css?v=23"><link rel="stylesheet" href="style.css?v=32">
+<script src="glass.js?v=4" defer></script>
+<script src="navigation.js" defer></script>
+<script src="content-protection.js" defer></script>
+<script src="workbench.js?v=1" defer></script>
+
+</head>
+<body class="liquid-glass-backdrop">
+<a class="skip" href="#workbench-main">Skip to content</a>
+
+<header class="masthead liquid-glass" data-glass><a class="home-link" href="index.html" aria-label="Home" title="Home"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h5v-7h4v7h5V9"/></svg></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><nav id="main-navigation" aria-label="Main navigation"><a href="index.html#about">About</a><a href="workbench.html" aria-current="page">Workbench</a><a href="https://scholar.google.com/citations?user=pwK2dYYAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Publications <span aria-hidden="true">↗</span></a></nav></header>
+<main id="workbench-main" class="workbench-main is-locked">
+<section id="workbench-access" class="workbench-access liquid-glass" data-glass aria-labelledby="workbench-access-title">
+<div class="workbench-lock-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg></div>
+<h1 id="workbench-access-title">Workbench</h1>
+<p class="bio">Enter the password to view the computer setup and software.</p>
+<form id="workbench-access-form" novalidate>
+<label for="workbench-password">Password</label>
+<div class="workbench-password-row">
+<input id="workbench-password" class="workbench-password" name="password" type="password" autocomplete="current-password" autocapitalize="off" spellcheck="false" required aria-describedby="workbench-access-status">
+<button class="workbench-unlock" type="submit"><span>Unlock</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</div>
+<p id="workbench-access-status" class="workbench-access-status" role="status" aria-live="polite"></p>
+</form>
+</section>
+<div id="workbench-content" role="region" aria-label="Workbench content" hidden tabindex="-1"></div>
+</main><footer><span>© <span id="year">2016</span> <span class="credits">99% made by ChatGPT, with the final 1% by Zenan Huo.</span></span><a href="mailto:zenan.huo@outlook.com">zenan.huo@outlook.com <span aria-hidden="true">↗</span></a></footer>
+</body></html>
